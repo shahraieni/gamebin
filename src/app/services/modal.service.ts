@@ -13,5 +13,6 @@ visible=false;
 
   toggleModal(){
     this.visible  = !this.visible;
+    
   }
 }

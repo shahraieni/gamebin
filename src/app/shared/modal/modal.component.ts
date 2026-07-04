@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ModalService } from '../../services/modal.service';
 
 @Component({
@@ -7,8 +7,10 @@ import { ModalService } from '../../services/modal.service';
   styleUrl: './modal.component.css'
 })
 export class ModalComponent {
-  constructor(public modal:ModalService){}
-
+  constructor(public modal:ModalService , private elementRef:ElementRef){}
+  ngOnInit(){
+    document.body.appendChild(this.elementRef.nativeElement);
+  }
   onCloseModal(){
     this.modal.toggleModal();
   }

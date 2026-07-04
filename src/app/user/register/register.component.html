@@ -8,11 +8,17 @@
         placeholder=" نام" />
 
         @if(form.controls.name.invalid && (form.controls.name.touched || form.controls.name.dirty)) {
-            
-        <p  class="text-red-500"  *ngIf="form.get('name')?.errors?.['required']">نام الزامی است</p>
-        <p  class="text-red-500"  *ngIf="form.get('name')?.errors?.['minlength']">نام باید حداقل 3 کاراکتر باشد</p>
-        <p  class="text-red-500"  *ngIf="form.get('name')?.errors?.['maxlength']">نام باید حداکثر 20 کاراکتر باشد</p>
-        <p  class="text-red-500"  *ngIf="form.get('name')?.errors?.['maxlength']">نام باید حداکثر 20 کاراکتر باشد</p>
+
+            @if(form.controls.name.errors?.['required']) {
+                <p  class="text-red-500" >نام الزامی است</p>
+            }
+            @if(form.controls.name.errors?.['minlength']) {
+                <p  class="text-red-500" >نام باید حداقل {{form.controls.name.errors?.['minlength'].requiredLength}} کاراکتر باشد</p>
+            }
+            @if(form.controls.name.errors?.['maxlength']) {
+                <p  class="text-red-500" >نام باید حداکثر {{form.controls.name.errors?.['maxlength'].requiredLength}} کاراکتر باشد</p>
+            }
+       
         }
 
     </div>

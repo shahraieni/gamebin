@@ -1,25 +1,14 @@
 <form [formGroup]="form"  (submit)="onSubmit()">
     <!-- Name -->
     <div class="mb-3">
-      <label class="inline-block mb-2">نام</label>
-      <input type="text" formControlName="name"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-          duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder=" نام" />
-
-        @if(form.controls.name.invalid && (form.controls.name.touched || form.controls.name.dirty)) {
-
-            @if(form.controls.name.errors?.['required']) {
-                <p  class="text-red-500" >نام الزامی است</p>
-            }
-            @if(form.controls.name.errors?.['minlength']) {
-                <p  class="text-red-500" >نام باید حداقل {{form.controls.name.errors?.['minlength'].requiredLength}} کاراکتر باشد</p>
-            }
-            @if(form.controls.name.errors?.['maxlength']) {
-                <p  class="text-red-500" >نام باید حداکثر {{form.controls.name.errors?.['maxlength'].requiredLength}} کاراکتر باشد</p>
-            }
-       
-        }
+    
+        <app-input 
+        [label]="'نام'"
+         [type]="'text'"
+         [placeholder]="'نام'"
+         [formControlName]="'name'" 
+         [formGroup]="form"
+         ></app-input>
 
     </div>
     <!-- Email -->

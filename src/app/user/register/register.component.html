@@ -1,63 +1,38 @@
-<form [formGroup]="form"  (submit)="onSubmit()">
-    <!-- Name -->
-    <div class="mb-3">
-    
-        <app-input 
-        [label]="'نام'"
-         [type]="'text'"
-         [placeholder]="'نام'"
-         [formControlName]="'name'" 
-         [formGroup]="form"
-         ></app-input>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <!-- Name -->
+  <div class="mb-3">
 
-    </div>
-    <!-- Email -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">ایمیل</label>
-      <input type="email"
-      formControlName="email"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition 
-          duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder=" ایمیل" />
-    </div>
-    <!-- Age -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">سن</label>
-      <input type="number"
-      formControlName="age"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-          duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" />
-    </div>
-    <!-- Password -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">رمز عبور </label>
-      <input type="password"
-      formControlName="password"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-          duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder="رمز عبور " />
-    </div>
-    <!-- Confirm Password -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">تکرار رمز عبور</label>
-      <input type="password"
-      formControlName="confirmPassword"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-          duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder="تکرار رمز عبور " />
-    </div>
-    <!-- Phone Number -->
-    <div class="mb-3">
-      <label class="inline-block mb-2">تلفن </label>
-      <input type="text"
-      formControlName="phoneNumber"
-        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-          duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder="شماره تلفن را وارد کنید" />
-    </div>
-    <button type="submit"
-      class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
+    <app-input [label]="'نام'" [type]="'text'" [placeholder]="'نام'" [control]="'name'"
+      [formGroup]="form"></app-input>
+
+  </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <app-input [label]="'ایمیل'" [type]="'text'" [placeholder]="'ایمیل'" [control]="'email'"
+      [formGroup]="form"></app-input>
+  </div>
+  <!-- Age -->
+  <div class="mb-3">
+    <app-input [label]="'سن'" [type]="'number'" [placeholder]="'سن'" [control]="'age'"
+      [formGroup]="form"></app-input>
+  </div>
+  <!-- Password -->
+  <div>
+    <app-input [label]="'رمز عبور'" [type]="'password'" [placeholder]="'رمز عبور'"
+      [control]="'password'" [formGroup]="form"></app-input>
+  </div>
+  <div>
+  <!-- Confirm Password -->
+  <app-input [label]="'تکرار رمز عبور'" [type]="'password'" [placeholder]="'تکرار رمز عبور'"
+    [control]="'confirmPassword'" [formGroup]="form"></app-input>
+  </div>
+  <!-- Phone Number -->
+  <div class="mb-3">
+    <app-input [label]="'تلفن'" [type]="'number'" [placeholder]="'تلفن'" [control]="'phoneNumber'"
+      [formGroup]="form"></app-input>
+  </div>
+  <button type="submit" class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
         hover:bg-indigo-500">
-      ثبت نام
-    </button>
-  </form>
+    ثبت نام
+  </button>
+</form>

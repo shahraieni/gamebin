@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 import { ModalService } from '../services/modal.service';
+import { AuthService } from '../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-constructor( private modal:ModalService){}
+constructor( private modal:ModalService , public auth:AuthService , private afAuth:AngularFireAuth){}
 
 
   openModal(){
     
       this.modal.toggleModal();
+  }
+
+   async logOut(event :Event){
+      event.preventDefault();
+     await this.afAuth.signOut();
   }
 }

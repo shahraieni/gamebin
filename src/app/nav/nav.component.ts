@@ -21,8 +21,7 @@ constructor( private modal:ModalService , public auth:AuthService , private afAu
       this.modal.toggleModal();
   }
 
-   async logOut(event :Event){
-      event.preventDefault();
-     await this.afAuth.signOut();
+    logOut(event :Event){
+       this.auth.logOut(event)
   }
 }

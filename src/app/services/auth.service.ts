@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { IUser } from '../models/user-model';
 import { map, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { map, Observable } from 'rxjs';
 export class AuthService {
   fireBaseAuth = inject(AngularFireAuth);
   fireBaseDb = inject(AngularFirestore);
+  router = inject(Router);
   private userCollection!:AngularFirestoreCollection;
   public isAuthenticated! :Observable<boolean>;
 
@@ -46,5 +48,14 @@ export class AuthService {
     });
   
 
+  }
+
+  logOut(event?:Event){
+    if(event){
+        event.preventDefault();
+    }
+    this.fireBaseAuth.signOut();
+    this.router.navigateByUrl("/");
+    
   }
 }
